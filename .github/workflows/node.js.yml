@@ -11,7 +11,7 @@ on:
   pull_request:
     branches: [ "main" ]
 env: 
-DATABASE_URL=postgres://uycdxfchziegmd:45054b04a05372b0a6ceed96f3fbdd5a817b55fa7157f3bbaa8aa2762091c1cc@ec2-99-81-16-126.eu-west-1.compute.amazonaws.com:5432/dctk9qlskj2t18
+  DATABASE_URL : postgres://uycdxfchziegmd:45054b04a05372b0a6ceed96f3fbdd5a817b55fa7157f3bbaa8aa2762091c1cc@ec2-99-81-16-126.eu-west-1.compute.amazonaws.com:5432/dctk9qlskj2t18
 
 jobs:
   build:
