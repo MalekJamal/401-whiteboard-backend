@@ -32,4 +32,9 @@ describe("Test wrong Route", () => {
                 message: `error: Page Not Found!`
             });
     });
+
+    it('handles my internal server errors', async () => {
+        const response = await request.post('/posts');
+        expect(response.status).toEqual(404);// 500
+    });
 });

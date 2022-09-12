@@ -2,9 +2,19 @@
 
 const {Sequelize, DataTypes} = require('sequelize');
 const post = require('./post.model');
-const POSTGRES_URL = process.env.LOCAL_DATABASE_URL || "postgresql://malek:12345678@127.0.0.1:5432/postgres" ;
+require('dotenv').config();
+const POSTGRES_URL = process.env.LOCAL_DATABASE_URL || process.env.DATABASE_URL ;
 
-let sequelize = new Sequelize(POSTGRES_URL);
+const sequelizeOption = {
+    dialectOptions: {
+      ssl: {
+        require: true,
+        rejectUnauthorized: false
+      }
+    }
+  }
+
+let sequelize = new Sequelize(POSTGRES_URL, sequelizeOption);
 
 module.exports={
     db: sequelize,
