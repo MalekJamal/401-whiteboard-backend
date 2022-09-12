@@ -5,7 +5,7 @@ const supertest = require('supertest');
 
 const request = supertest(server.app);
 
-jest.setTimeout(5000000)
+jest.setTimeout(9000)
 
 describe("Test Create a New Post", () => {
 
