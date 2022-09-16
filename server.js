@@ -9,7 +9,9 @@ app.use(cors());
 // it's a middleware to parse the body, convert the body to json object
 app.use(express.json());
 const postRouter = require('./routes/post.route');
+const commentRouter = require('./routes/comment.route');
 app.use(postRouter.router);
+app.use(commentRouter.router);
 app.get('/', getHomePage);
 
 function getHomePage(req, res) {

@@ -3,7 +3,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { Post } = require('../models/index');
+const { Post, Comment, commentModel } = require('../models/index');
 
 // app routes
 router.get('/post', getAllPosts);
@@ -12,47 +12,41 @@ router.post('/post', createPost);
 router.put('/post/:id', updatePost);
 router.delete('/post/:id', deletePost);
 
+
 async function getAllPosts(req, res) {
-    const post = await Post.findAll();
-    res.status(200).json({ post });
+    const postWithComment = await Post.readPostWithComment(commentModel);
+
+    res.status(200).json(postWithComment);
 }
 
 async function getPost(req, res) {
     const id = req.params.id;
-    const post = await Post.findOne({
-        where: { id: id }
-    });
-    res.status(200).json({ post: post.post });
+    const post = await Post.read(id);
+    res.status(200).json( post );
 }
 
 async function createPost(req, res) {
 
     const newPost = req.body;
     const post = await Post.create(newPost);
-    res.status(201).json({ post: post.post });
+    res.status(201).json(post);
 }
 
 async function updatePost(req, res) {
-    const newPost = req.body;
+    const data = req.body;
     const id = req.params.id;
 
-    await Post.findOne({
-        where: { id: id }
-    });
-    await Post.update(newPost, { where: { id: id } });
-
-    res.status(200)
-        .json(newPost);
+    await Post.update(id, data)
+    res.status(200).json(data);
 }
 
 async function deletePost(req, res) {
     const id = req.params.id;
+    const getPost = await Post.read(id)
+    const deleted = await Post.delete(id)
 
-    const post = await Post.destroy({
-        where: { id: id }
-    });
-
-    res.status(200).json({})
+    res.status(200).send(deleted ? getPost.body + " was deleted!" : "Error!");
 }
+
 
 module.exports = { router };
