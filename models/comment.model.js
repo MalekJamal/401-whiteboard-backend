@@ -10,6 +10,10 @@ const Comment = (sequelize, DataTypes)=> sequelize.define("Comment",{
     postID:{
         type: DataTypes.INTEGER,
         allowNull: false
+    },
+    createdBy:{
+        type: DataTypes.STRING,
+        allowNull: false
     }
 });
 

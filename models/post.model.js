@@ -9,7 +9,7 @@ const Post = (sequelize, DataTypes)=> sequelize.define('Post',{
         allowNull: false
     },
     body:{
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(1024),
         defaultValue: "Post",
         allowNull: false
     },
@@ -21,6 +21,11 @@ const Post = (sequelize, DataTypes)=> sequelize.define('Post',{
     imgUrl:{
         type: DataTypes.STRING,
         defaultValue: "https://images.pexels.com/photos/5721904/pexels-photo-5721904.jpeg",
+        allowNull: false
+    },
+    createdBy:{
+        type: DataTypes.STRING,
+        defaultValue: "Malek Hasan",
         allowNull: false
     }
 

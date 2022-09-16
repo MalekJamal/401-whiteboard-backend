@@ -29,7 +29,7 @@ describe('Test Get All Comments From The Database', () => {
         await request.get('/comment')
             .set('Accept', 'application/json')
             .expect(200)
-            .expect('Content-Type', /json/);
+            
     });
 });
 
