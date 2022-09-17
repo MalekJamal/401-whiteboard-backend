@@ -14,6 +14,10 @@ const Comment = (sequelize, DataTypes)=> sequelize.define("Comment",{
     createdBy:{
         type: DataTypes.STRING,
         allowNull: false
+    },
+    userEmail:{
+        type: DataTypes.STRING,
+        allowNull: false
     }
 });
 
