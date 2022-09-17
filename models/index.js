@@ -18,7 +18,7 @@ const sequelizeOption = {
     }
   }
 
-let sequelize = new Sequelize(POSTGRES_URL, sequelizeOption);
+let sequelize = new Sequelize(POSTGRES_URL,sequelizeOption);
 
 const Post = post(sequelize, DataTypes);
 const Comment = comment(sequelize, DataTypes);
