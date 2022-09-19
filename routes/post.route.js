@@ -3,7 +3,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { Post, Comment, commentModel } = require('../models/index');
+const { Post, Comment, commentModel } = require('../models/index.model');
 
 // app routes
 router.get('/post', getAllPosts);

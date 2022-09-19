@@ -10,8 +10,10 @@ app.use(cors());
 app.use(express.json());
 const postRouter = require('./routes/post.route');
 const commentRouter = require('./routes/comment.route');
+const userRouter = require('./routes/user.route');
 app.use(postRouter.router);
 app.use(commentRouter.router);
+app.use(userRouter);
 app.get('/', getHomePage);
 
 function getHomePage(req, res) {
