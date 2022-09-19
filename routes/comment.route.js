@@ -3,7 +3,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { Comment } = require('../models/index');
+const { Comment } = require('../models/index.model');
 
 router.post("/comment/:postid", addComment);
 router.get("/comment", getAllComments);
