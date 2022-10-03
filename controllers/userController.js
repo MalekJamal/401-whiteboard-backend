@@ -7,12 +7,13 @@ const base64 = require('base-64');
 const signUp = async (req, res) => {
 
     try {
-        const { userName, email, password } = req.body;
+        const { userName, email, password, role } = req.body;
 
         const data = {
             userName,
             email,
-            password: await bcrypt.hash(password, 10)
+            password: await bcrypt.hash(password, 10),
+            role
         }
         console.log(data)
         const user = await User.create(data);
