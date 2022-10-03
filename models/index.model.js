@@ -19,7 +19,7 @@ const sequelizeOption = {
   }
 }
 
-let sequelize = new Sequelize(POSTGRES_URL,sequelizeOption);
+let sequelize = new Sequelize(POSTGRES_URL, sequelizeOption);
 
 sequelize.authenticate()
   .then(() => { console.log("it's authenticated to connect to the DB!") })
