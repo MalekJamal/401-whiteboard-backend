@@ -35,6 +35,8 @@ const User = user(sequelize, DataTypes);
 Post.hasMany(Comment, { foreignKey: 'postID', sourceKey: 'id' });
 Comment.belongsTo(Post, { foreignKey: 'postID', targetKey: 'id' });
 
+User.hasMany(Post, {foreignKey: 'userID', sourceKey: 'id'});
+Post.belongsTo(User, {foreignKey: 'userID', sourceKey: 'id'});
 // collections
 const postCollection = new Collection(Post);
 const commentCollection = new Collection(Comment);
@@ -46,6 +48,7 @@ module.exports = {
   Post: postCollection,
   Comment: commentCollection,
   commentModel: Comment,
-  User: User
+  User: User,
+  PostModel: Post
 
 };

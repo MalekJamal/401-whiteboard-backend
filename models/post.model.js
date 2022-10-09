@@ -31,6 +31,10 @@ const Post = (sequelize, DataTypes)=> sequelize.define('Post',{
     userEmail:{
         type: DataTypes.STRING,
         allowNull: false
+    },
+    userID:{
+        type: DataTypes.INTEGER,
+        allowNull: false
     }
 
 });
